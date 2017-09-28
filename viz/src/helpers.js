@@ -27,7 +27,6 @@ var barChart = function(container, data, xCol, yCol) {
     // var detached = d3.select(document.createElement("div"));
     // var detached = d3.select(this);
     var detached = container;
-    console.log(container);
 
     var xs = function(){
 	return data.map(function(d){ return d[xCol]; })
@@ -57,7 +56,6 @@ var barChart = function(container, data, xCol, yCol) {
 
     var xAxisDiv = svg.append("g")
         .attr("transform", "translate(0," + function(){
-	    console.log("this", this);
 	    return height - margin;
 	}() + ")")
         .call(xAxis);
@@ -71,7 +69,6 @@ var barChart = function(container, data, xCol, yCol) {
         .x(function(d){ return xScale(d[xCol]); })
         .y(function(d){ return yScale(d[yCol]); })
 
-    console.log(data);
 
     svg.append("g").append("path")
     	.data([data])

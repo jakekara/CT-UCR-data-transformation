@@ -242,10 +242,7 @@ var barChart = function (container, data, xCol, yCol) {
 
     console.log(data);
 
-    svg.append("g").append("path").data([data])
-    // // .data([{x:1,y:10},{x:2,y:20},{x:3,y:30}])
-    // // .attr("class", "line")
-    .attr("d", valueline);
+    svg.append("g").append("path").data([data]).attr("class", "line").attr("d", valueline);
     // // return detached.html();
 };
 
