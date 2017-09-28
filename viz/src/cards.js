@@ -1,4 +1,4 @@
-const d3 = require("d3");
+// const d3 = require("d3");
 
 var cards = function()
 {
@@ -46,7 +46,7 @@ cards.prototype.draw = function(f){
 	.enter()
 	.append("div")
 	.classed("card", true)
-	.html(f);
+	.each(f);
 
     var that = this;
 

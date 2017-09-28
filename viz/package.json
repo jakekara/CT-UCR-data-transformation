@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "browserify src/crime-cards.js -o js/crime-cards.js -t babelify --presets 3s2015",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "rollup-plugin-commonjs": "^8.2.1"
+  }
 }
