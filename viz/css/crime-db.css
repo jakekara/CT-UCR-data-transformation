@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: #efefef;
+    padding: 0px;
+}
+.line {
+    fill: none;
+    stroke: black;
+    stroke-width: 1
+}
+
+.crime-area{
+    float:left;
+    overflow:hidden;
+}
+
+.clear-both{
+    clear:both;
+}
+
+.crime-table,
+table{
+    width: 100%;
+}
+
+point.hidden{
+    display:none;
+}
+
+.card {
+    padding: 12px;
+    background-color: white;
+    border: 1px solid black;
+    margin-bottom:3px;
+    border-radius: 0px 0px 3px 3px;
+    border-top: 0px;
+}
+
+/* .crime-area{ */
+/*     /\* max-width: 50%; *\/ */
+/* } */
+
+.crime-area h5{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    text-transform: UPPERCASE;
+    font-family: "Monaco","Lato",sans-serif;
+    color:gray;
+}
+
+.crime-area{
+}
+
+.card-search input{
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    width: 100%;
+}
+
+.expander{
+    color: gray;
+    margin-right:1em;
+}
+
+.expander:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.footnote{
+    font-size: small;
+    color: gray;
+}
+
+h2.headline{
+    margin-top:0px;
+    padding-top:0px;
+}

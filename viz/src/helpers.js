@@ -38,43 +38,72 @@ var barChart = function(container, data, xCol, yCol) {
 
     var svg = detached.append("svg").style("width", "100%");
     var height = 200,
-    	width = 200;
-    const margin = 20;
+    	width = 320;
+    const margin = 40;
+    const smallMargin = 10;
     
     svg.style("height", height + "px");
     svg.style("width", width + "px");
 
     var xScale = d3.scaleBand()
 	.domain(data.map(function(d){ return d[xCol]; }))
-	.range([margin, width - margin]);
-    var yScale = d3.scaleLinear()
-	.domain([0,d3.max(data.map(function(d) { return d[yCol]; }))])
-	.range([height - margin, margin]);
+	.range([margin, width]);
 
-    var xAxis = d3.axisBottom(xScale);
-    var yAxis = d3.axisLeft(yScale);
+    var yScale = d3.scaleLinear()
+	.domain([smallMargin,d3.max(data.map(function(d) { return d[yCol]; }))])
+	.range([height - margin, smallMargin]);
+
+    var xAxis = d3.axisBottom(xScale).tickValues(xScale.domain().filter(function(d, i){
+	return i % 10 == 0;
+    }));
+    
+    var yAxis = d3.axisLeft(yScale).ticks(4)
 
     var xAxisDiv = svg.append("g")
-        .attr("transform", "translate(0," + function(){
-	    return height - margin;
-	}() + ")")
+	.attr("transform","translate(" + 0 + "," + (height - margin) + ")")
         .call(xAxis);
 
-    svg.append("g")
+    var yAxisDiv = svg.append("g")
         .attr("class", "y axis")
         .attr("transform", "translate(" + margin + "," + 0 + ")")
         .call(yAxis);
 
-    var valueline = d3.line()
-        .x(function(d){ return xScale(d[xCol]); })
-        .y(function(d){ return yScale(d[yCol]); })
+    // yAxisDiv.attr("transform", function(){
+    // 	return "translate(" + d3.select(this).node().getBBox().width + ",0)";
+    // });
+
+    // yAxisDiv.attr("transform", function(){
+    // 	return "translate(" + margin + ",0)");
+    // });
 
 
-    svg.append("g").append("path")
-    	.data([data])
-        .attr("class", "line")
-        .attr("d", valueline);
+    // var valueline = d3.line()
+    //     .x(function(d){ return xScale(d[xCol]); })
+    //     .y(function(d){ return yScale(d[yCol]); })
+
+    // svg.append("g").append("path")
+    // 	.data([data])
+    //     .attr("class", "line")
+    //     .attr("d", valueline);
     // // return detached.html();
+
+    var pointArea = svg.append("g")
+	.classed("point-layer", true);
+    
+    var points = pointArea.selectAll(".point")
+	.data(data.filter(function(d){ return d[yCol] != ""; }))
+	.enter()
+	.append("circle")
+	// .classed("hidden", function(d){
+	//     return d[yCol] == "";
+	// })
+	.classed("point", true)
+	.attr("cx", function(d){ return xScale(d[xCol]); })
+	.attr("cy", function(d){ return yScale(d[yCol]); })
+	.attr("r", 2)
+
+    pointArea.attr("transform","translate(" + margin + "," + 0 + ")");
+    
         
 }
 

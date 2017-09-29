@@ -34,7 +34,7 @@ cards.prototype.draw = function(f){
 	.classed("card-search", true);
 
     var search_input = search_area.append("input")
-	.attr("placeholder","Type district name to search...")
+	.attr("placeholder","Type location to search...")
 	.classed("search-bar", true)
 	.attr("type","text");
 

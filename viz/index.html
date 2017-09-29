@@ -2,11 +2,29 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <link rel="stylesheet" href="css/crime-db.css">
+    <title>Connecticut crime trends</title>
+    <link rel="stylesheet" type="text/css" href="css/crime-db.css" />
+    <link rel="stylsheet" type="text/css"
+    <!-- href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" -->
+    <!-- 	  /> -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+	  rel="stylesheet">
   </head>
   <body>
+    <h2 class="headline">Connecticut crime trends</h2>
+    <p>Search by locality for counts of selected crimes, based on FBI data.</p>
     <div id="container"></div>
     <script src="js/d3.min.js"></script>    
     <script src="js/crime-cards.js"></script>
   </body>
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async
+	  src="https://www.googletagmanager.com/gtag/js?id=UA-58918752-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)};
+    gtag('js', new Date());
+
+    gtag('config', 'UA-58918752-1');
+  </script>
 </html>
