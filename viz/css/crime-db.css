@@ -12,8 +12,13 @@ body{
 }
 
 .crime-area{
+    max-width: 100%;
     float:left;
     overflow:hidden;
+}
+
+img {
+    max-width: 100%;
 }
 
 .clear-both{
@@ -23,6 +28,7 @@ body{
 .crime-table,
 table{
     width: 100%;
+    
 }
 
 point.hidden{
